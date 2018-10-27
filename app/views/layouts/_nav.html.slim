@@ -1,0 +1,33 @@
+.container.pb-4
+  nav.navbar.fixed-top.navbar-expand-lg.navbar-light
+    .pr-2
+      = link_to 'APP', root_path
+
+    = link_to '#', data: {toggle: "collapse", target: "#nav_content"}, aria: {controls: "nav_content", expanded: "false"}, class: 'navbar-toggler navbar-toggler-right'
+      span
+      span
+      span
+
+
+    #nav_content.collapse.navbar-collapse
+
+      ul.navbar-nav.mr-auto
+        .form-inline
+          /= form_tag some_path, method: :get do |f|
+            .input-group
+              = text_field_tag :q, params[:q], placeholder: t('search'), class: "form-control"
+              = button_tag(type: "submit", class: "btn btn-light") do
+                i.fas.fa-search
+                
+        li.nav-item
+          .small.px-2
+            / = render partial: 'layouts/buttons/lang_links'
+
+
+      ul.navbar-nav
+
+        li.nav-item
+          = link_to t("users"), users_path, data: {toggle: 'dropdown'}, aria: {expanded: 'false', haspopup: 'true'}, class: 'nav-link'
+        
+        li.nav-item
+          = link_to t("Login/out"), root_path, data: {toggle: 'dropdown'}, aria: {expanded: 'false', haspopup: 'true'}, class: 'nav-link'

@@ -1,0 +1,8 @@
+.container
+  h2 Users
+
+  .card-columns
+    - @users.each do |user|
+      .card
+        .p-4.text-center
+          = link_to image_tag(user.photo, class: 'img-fluid rounded-circle'), user

@@ -1,0 +1,25 @@
+.container
+  h2 = @user.name
+
+  .row
+    .col-4
+      .card
+        .p-2.text-center
+          = image_tag(@user.photo, class: 'img-fluid rounded-circle')
+
+    .col-8
+      .card
+        .pb-4
+          script src=("//maps.google.com/maps/api/js?v=3=key libraries=geometry===") 
+          script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" 
+          div data-turbolinks="false" 
+            #map style=("width: 100%; height: 200px;") 
+          javascript:
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}})
+            
+
+        = @user.religion
+        = @user.latitude
+        = @user.address
+        = @user.logistics
